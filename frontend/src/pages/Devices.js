@@ -25,6 +25,13 @@ export default function Devices() {
   }, []);
 
   const blockDevice = async (mac) => {
-    setActionLoading(mac);
-    try {
-      await axios.post('/api/some-endpoint', { /* data */ });
+  setActionLoading(mac);
+  try {
+    await axios.post('/api/block', { mac });
+    // handle success, e.g., refresh device list
+  } catch (error) {
+    console.error('Failed to block device:', error);
+  } finally {
+    setActionLoading(null);
+  }
+};
