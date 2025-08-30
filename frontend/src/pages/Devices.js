@@ -27,4 +27,4 @@ export default function Devices() {
   const blockDevice = async (mac) => {
     setActionLoading(mac);
     try {
-      await axios.post('/api
+      await axios.post('/api/some-endpoint', { /* data */ });
